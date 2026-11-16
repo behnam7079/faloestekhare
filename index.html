@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فال حافظ و استخاره آنلاین | faloestekhare</title>
+    <!-- لود فونت محبوب و زیبای شبنم و وزیر -->
+        <!-- فونت فوق‌العاده شیک وزیرمتن با تمام وزن‌ها + ایران‌نستعلیق -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+                :root {
+            --bg-base: #0a080d;
+            --bg-surface: #140f1a;
+            --bg-card: #1c1424;
+            /* تغییر رنگ‌ها به نسخه‌ی ملایم‌تر و پاستلی‌تر */
+            --magenta: #ff4d94; 
+            --magenta-glow: rgba(255, 77, 148, 0.3);
+            --magenta-dark: #d63384;
+            --text-main: #ffffff;
+            --text-muted: #a097a8;
+            --border-glow: #381f45;
+            --gold: #ffbe3b;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+        }
+
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at 50% 0%, #2b0b24 0%, #0a080d 65%);
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        /* هدر نئونی */
+        header {
+            padding: 30px 16px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 20px var(--magenta);
+        }
+
+        header h1 span {
+            color: var(--magenta);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+
+        /* ۱. بنر تبلیغاتی بزرگ زیر هدر */
+        .ad-top-slot {
+            margin: 15px auto 25px;
+            background: linear-gradient(90deg, #1b0c20 0%, #290e29 50%, #1b0c20 100%);
+            border: 2px dashed var(--magenta);
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 4px 25px rgba(255, 0, 127, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .ad-top-slot:hover {
+            transform: scale(1.01);
+            box-shadow: 0 6px 30px rgba(255, 0, 127, 0.35);
+            border-color: #ff3399;
+        }
+
+        .ad-badge {
+            background: var(--magenta);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        /* ساختار گرید دو ستونه: راست تبلیغات - چپ فال و استخاره */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* تب‌ها */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px 20px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 14px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-dark) 100%);
+            color: #fff;
+            border-color: var(--magenta);
+            box-shadow: 0 0 25px var(--magenta-glow);
+        }
+
+        /* باکس اصلی محتوا */
+        .content-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* فریم عکس گرافیکی */
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #25102a 0%, #15091c 100%);
+            border: 2px solid #4a1f56;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .photo-placeholder img.card-art-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+            margin-bottom: 12px;
+        }
+
+
+        .photo-icon {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 10px var(--magenta));
+        }
+
+        .photo-title {
+            color: #d1b4dc;
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+        /* دکمه اکشن اصلی */
+        .action-box {
+            text-align: center;
+            padding: 15px 0 25px;
+        }
+
+        .glow-btn {
+            background: linear-gradient(135deg, var(--magenta) 0%, #bd005a 100%);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 30px var(--magenta-glow);
+            transition: all 0.3s ease;
+        }
+
+        .glow-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 0 45px rgba(255, 0, 127, 0.8);
+        }
+
+        /* باکس نمایش شعر */
+        .result-area {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .poem-header {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.35rem;
+            font-weight: 900;
+            margin-bottom: 18px;
+            text-shadow: 0 0 12px rgba(255, 190, 59, 0.3);
+        }
+
+                /* کادر شعر: مشکی باقی می‌ماند و فقط واترمارک نستعلیق دارد */
+        .poem-verses {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            background: #0d0812;
+            border: 1px solid rgba(20, 184, 166, 0.28);
+            border-radius: 14px;
+            padding: 26px 22px;
+            line-height: 2.5;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.45),
+                        0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        /* نوشته نستعلیق بسیار کم‌رنگ در پشت شعر */
+        .poem-verses::before {
+            content: "ز کوی یار می‌آید نسیم باد نوروزی\A\A چو بشنوی سخن اهل دل مگو که خطاست\A\A دوش دیدم که ملائک در میخانه زدند";
+            white-space: pre;
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            width: 115%;
+            transform: translate(-50%, -50%) rotate(-7deg);
+            font-family: 'IranNastaliq', cursive;
+            font-size: 2.7rem;
+            font-weight: normal;
+            line-height: 2.2;
+            text-align: center;
+            color: rgba(20, 184, 166, 0.065);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* ابیات اصلی روی واترمارک قرار می‌گیرند */
+        .verse-row {
+            position: relative;
+            z-index: 1;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            font-size: 1.08rem;
+            color: #f3edf7;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .verse-row span {
+            display: inline-block;
+        }
+
+        .verse-row span:hover {
+            color: #5eead4;
+            transition: color 0.2s ease;
+        }
+
+
+        .poem-interpretation {
+            background: rgba(255, 0, 127, 0.08);
+            border-right: 5px solid var(--magenta);
+            border-radius: 10px;
+            padding: 18px;
+            color: #f7dbe7;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+                /* بخش فال روزانه متولدین ماه‌ها */
+        .daily-section {
+            margin-bottom: 25px;
+        }
+
+        .daily-btn-toggle {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--magenta) 0%, var(--magenta-dark) 100%);
+            border: 1px solid var(--magenta);
+            border-radius: 16px;
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--magenta-glow);
+            transition: 0.3s;
+        }
+
+        .daily-btn-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--magenta-glow);
+        }
+
+        .daily-panel {
+            display: none;
+            margin-top: 15px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .month-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .m-btn {
+            padding: 12px 5px;
+            background: #23152d;
+            border: 1px solid #4a2b56;
+            border-radius: 12px;
+            color: #f3e8ff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .m-btn:hover,
+        .m-btn.active {
+            background: var(--magenta);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .get-daily-btn {
+            width: 100%;
+            padding: 14px;
+            background: #059669;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .get-daily-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .daily-res-box {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 4px solid var(--magenta);
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .month-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+
+        /* بخش استخاره */
+        .estekhare-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+
+        .badge-good { background: #059669; color: #fff; box-shadow: 0 0 20px rgba(5, 150, 105, 0.5); }
+        .badge-bad { background: #e11d48; color: #fff; box-shadow: 0 0 20px rgba(225, 29, 72, 0.5); }
+        .badge-mid { background: #d97706; color: #fff; box-shadow: 0 0 20px rgba(217, 119, 6, 0.5); }
+
+        /* سایدبار تبلیغات (۳ عدد) */
+        .sidebar-ads {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .ad-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .ad-card:hover {
+            border-color: var(--magenta);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.25);
+        }
+
+        .ad-img-box {
+            width: 100%;
+            height: 130px;
+            background: linear-gradient(135deg, #300f36 0%, #15091c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .ad-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ad-img-box .ad-icon {
+            font-size: 2.5rem;
+        }
+
+        .ad-content {
+            padding: 14px;
+        }
+
+        .ad-content h4 {
+            font-size: 1.02rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .ad-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid #201328;
+            padding: 22px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+    <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <!-- عکس لوگو با اندازه کوچکتر -->
+        <img src="site-logo.webp" alt="فال حافظ" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 2px solid var(--magenta); box-shadow: 0 4px 12px var(--magenta-glow);">
+        
+        <!-- متن عنوان و توضیحات -->
+        <div style="text-align: right;">
+            <h1 style="margin: 0; font-size: 1.8rem;">فال حافظ و استخاره <span>یزدان</span></h1>
+            <p style="margin: 5px 0 0 0; color: var(--text-muted);">نیت کنید و با آرامش دل پاسخ بگیرید</p>
+        </div>
+    </div>
+</header>
+
+    <div class="container">
+        
+        <!-- ۱. بنر تبلیغاتی بالای صفحه (زیر هدر) -->
+    <!-- بنر افقی و جمع‌وجور فاکتوریت -->
+    <div style="max-width: 820px; margin: 0 auto 28px; background: #0c1a24; border: 1.5px solid #14b8a6; border-radius: 20px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);">
+    
+    <!-- بخش متن و دکمه‌ها -->
+    <div style="flex: 1 1 340px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h3 style="margin: 0 0 8px; color: #2dd4bf; font-size: 1.25rem; font-weight: 800; line-height: 1.4;">
+            اپلیکیشن حسابداری و فاکتور ساز «فاکتوریت»
+        </h3>
+        
+        <p style="margin: 0 0 16px; color: #94a3b8; font-size: 0.95rem; line-height: 1.5;">
+            مدیریت مانده حساب‌ها و بک‌آپ‌گیری در سیستم شما
+        </p>
+
+        <!-- دکمه‌ها دقیقاً با رنگ‌های نمونه شما -->
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <!-- دانلود از کافه‌بازار (نارنجی) -->
+            <a href="https://cafebazaar.ir/app/ir.factoorit.app" target="_blank" rel="noopener noreferrer" style="background: #e67e00; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; box-shadow: 0 3px 10px rgba(230, 126, 0, 0.35); transition: 0.2s;">
+                دانلود از کافه‌بازار
+            </a>
+
+            <!-- دانلود از مایکت (بنفش/آبی) -->
+            <a href="https://myket.ir/app/ir.factoorit.app" target="_blank" rel="noopener noreferrer" style="background: #4f46e5; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 10px; font-size: 0.95rem; font-weight: 700; box-shadow: 0 3px 10px rgba(79, 70, 229, 0.35); transition: 0.2s;">
+                دانلود از مایکت
+            </a>
+        </div>
+    </div>
+
+    <!-- عکس کوچک‌شده و شکیل بنر -->
+    <div style="flex: 0 0 auto; width: 260px; max-width: 100%; border-radius: 14px; overflow: hidden; border: 1px solid rgba(20, 184, 166, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); line-height: 0;">
+        <a href="https://factorit.ir" target="_blank" rel="noopener noreferrer" style="display: block;">
+            <img src="factorit-banner.jpg" alt="فاکتوریت" style="width: 100%; height: auto; display: block; object-fit: cover;">
+        </a>
+    </div>
+
+</div>
+
+
+
+
+        <!-- چیدمان اصلی: سایدبار راست ۳ تبلیغ + محتوای سمت چپ -->
+        <div class="layout-grid">
+            
+            <!-- ستون سایدبار (۳ تبلیغ) -->
+            <aside class="sidebar-ads">
+                <!-- تبلیغ شماره ۱ -->
+            
+            <!-- کارت اختصاصی پیک‌کمپرسور با لوگو -->
+            <a href="https://piccompressor.ir" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg, #241426, #160a18); border: 1.5px solid #8a2be2; border-radius: 20px; padding: 22px 16px 18px; text-decoration: none; box-shadow: 0 8px 25px rgba(0,0,0,0.45); transition: all 0.3s ease; margin-bottom: 20px; overflow: hidden;">
+    
+    <!-- بج تبلیغاتی -->
+    <span style="position: absolute; top: 12px; right: 12px; background: #e02475; color: #fff; font-size: 0.72rem; padding: 3px 9px; border-radius: 20px; font-weight: bold; letter-spacing: 0.5px;">ابزار آنلاین</span>
+
+    <!-- لوگوی پیک‌کمپرسور -->
+    <div style="width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; filter: drop-shadow(0 4px 10px rgba(0, 212, 255, 0.3));">
+        <img src="logo-p.webp" alt="لوگو پیک‌کمپرسور" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+
+    <!-- عنوان -->
+    <h4 style="color: #f3e8ff; margin: 0 0 6px; font-size: 1.15rem; font-weight: 700; text-align: center;">پیک‌کمپرسور</h4>
+
+    <!-- متن توضیحات -->
+    <p style="color: #c4a1d8; font-size: 0.82rem; margin: 0 0 14px; text-align: center; line-height: 1.5;">
+         کاهش حجم عکس، تغییر فرمت و واترمارک سریع بدون افت کیفیت و افزودن واترمارک و پی دی اف کردن عکس 
+    </p>
+
+    <!-- دکمه ورود -->
+    <span style="display: inline-block; background: linear-gradient(90deg, #9333ea, #c026d3); color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 7px 18px; border-radius: 10px; box-shadow: 0 4px 12px rgba(192, 38, 211, 0.35);">
+        ورود به سایت
+    </span>
+</a>
+
+
+
+                <!-- تبلیغ شماره ۲ -->
+                <!-- تبلیغ شماره ۲: کانال بله قیمت خودرو -->
+            <a href="https://ble.ir/gheymat_mashin" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg, #241426, #160a18); border: 1.5px solid #8a2be2; border-radius: 20px; padding: 22px 16px 18px; text-decoration: none; box-shadow: 0 8px 25px rgba(0,0,0,0.45); transition: all 0.3s ease; margin-bottom: 20px; overflow: hidden;">
+    
+    <!-- بج تبلیغاتی بالا سمت راست -->
+    <span style="position: absolute; top: 12px; right: 12px; background: #00b894; color: #fff; font-size: 0.72rem; padding: 3px 9px; border-radius: 20px; font-weight: bold; letter-spacing: 0.5px;">کانال بله</span>
+
+    <!-- آیکون ماشین با افکت نئونی -->
+    <div style="width: 58px; height: 58px; background: rgba(0, 184, 148, 0.15); border: 1px solid rgba(0, 184, 148, 0.4); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0, 184, 148, 0.2);">
+        <img src="car-channel.webp" alt="قیمت روز خودرو" style="width: 48px; height: 48px; object-fit: cover; border-radius: 50%;">
+    </div>
+
+    <!-- عنوان -->
+    <h4 style="color: #f3e8ff; margin: 0 0 8px; font-size: 1.1rem; font-weight: 700; text-align: center;">قیمت روز خودرو</h4>
+
+    <!-- برچسب وضعیت چشمک‌زن زنده -->
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+        <span style="display: inline-block; width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulseLive 1.5s infinite;"></span>
+        <span style="color: #4ade80; font-size: 0.75rem; font-weight: bold;">بروزرسانی خودکار هر روز</span>
+    </div>
+
+    <!-- متن توضیحات -->
+    <p style="color: #c4a1d8; font-size: 0.8rem; margin: 0 0 14px; text-align: center; line-height: 1.5;">
+        مرجع اعلام دقیق قیمت کارخانه و بازار آزاد خودروهای داخلی
+    </p>
+
+    <!-- دکمه عضویت -->
+    <span style="display: inline-block; background: linear-gradient(90deg, #10b981, #059669); color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 7px 18px; border-radius: 10px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);">
+        عضویت در کانال بله 
+    </span>
+</a>
+
+<style>
+@keyframes pulseLive {
+    0% { transform: scale(0.95); opacity: 0.6; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.6; }
+}
+/* =============================
+   استایل‌های فوتر ۳ ستونه
+============================= */
+.site-footer {
+    background: #0f0a14;
+    border-top: 1px solid rgba(255, 77, 148, 0.25);
+    margin-top: 50px;
+    padding: 40px 20px 20px;
+    color: #cfc8dc;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.footer-col h4 {
+    color: #ffbe3b;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: #ff4d94;
+    border-radius: 2px;
+}
+
+.footer-col p {
+    margin: 0 0 10px;
+    color: #b5adc4;
+    text-align: justify;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #cfc8dc;
+    text-decoration: none;
+    transition: color 0.2s, padding-right 0.2s;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #ff4d94;
+    padding-right: 6px;
+}
+
+.footer-notice {
+    background: rgba(255, 77, 148, 0.08);
+    border-right: 3px solid #ff4d94;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: #e2d9ec;
+    margin-top: 10px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    color: #8a8298;
+    font-size: 0.82rem;
+}
+
+</style>
+
+
+                <!-- تبلیغ شماره ۳ -->
+               
+        <a href="https://ble.ir/bazar_online_ir" target="_blank" rel="noopener noreferrer" style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg, #241426, #160a18); border: 1.5px solid #8a2be2; border-radius: 20px; padding: 22px 16px 18px; text-decoration: none; box-shadow: 0 8px 25px rgba(0,0,0,0.45); transition: all 0.3s ease; margin-bottom: 20px; overflow: hidden;">
+    
+    <!-- بج تبلیغاتی -->
+    <span style="position: absolute; top: 12px; right: 12px; background: #f39c12; color: #fff; font-size: 0.72rem; padding: 3px 9px; border-radius: 20px; font-weight: bold; letter-spacing: 0.5px;">مالی و اقتصادی</span>
+
+    <!-- لوگوی نبض قیمت -->
+    <div style="width: 58px; height: 58px; margin-bottom: 12px;">
+        <img src="market-channel.webp" alt="نبض قیمت" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+    </div>
+
+    <!-- عنوان -->
+    <h4 style="color: #f3e8ff; margin: 0 0 8px; font-size: 1.1rem; font-weight: 700; text-align: center;">نبض قیمت بازار</h4>
+
+    <!-- برچسب وضعیت چشمک‌زن -->
+    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+        <span style="display: inline-block; width: 8px; height: 8px; background: #fbbf24; border-radius: 50%; box-shadow: 0 0 8px #fbbf24; animation: pulseLive 1.5s infinite;"></span>
+        <span style="color: #fbbf24; font-size: 0.75rem; font-weight: bold;">بروزرسانی لحظه‌ای</span>
+    </div>
+
+    <!-- متن توضیحات -->
+    <p style="color: #c4a1d8; font-size: 0.8rem; margin: 0 0 14px; text-align: center; line-height: 1.5;">
+        نرخ ارز، طلا، سکه و رمزارزها (بیت‌کوین و...)
+    </p>
+
+    <!-- دکمه عضویت -->
+    <span style="display: inline-block; background: linear-gradient(90deg, #d97706, #b45309); color: #ffffff; font-size: 0.82rem; font-weight: 700; padding: 7px 18px; border-radius: 10px; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);">
+        عضویت در کانال بله 
+    </span>
+</a>
+
+            </aside>
+
+            <!-- ستون فال و استخاره -->
+            <main>
+                                <!-- بخش فال روزانه متولدین ماه‌ها -->
+                <div class="daily-section">
+                    <button
+                        class="daily-btn-toggle"
+                        onclick="toggleDailyPanel()">
+                        ✨ فال روز متولدین ماه‌ها
+                    </button>
+
+                    <div id="dailyPanel" class="daily-panel">
+                        <h4 style="text-align: center; color: var(--gold);">
+                            🌙 ماه تولد خود را انتخاب کنید:
+                        </h4>
+
+                        <div class="month-grid" id="monthGrid">
+                            <!-- دکمه‌های ماه‌ها با جاوااسکریپت ساخته می‌شوند -->
+                        </div>
+
+                        <button
+                            id="btnGetDaily"
+                            class="get-daily-btn"
+                            disabled
+                            onclick="showMyDailyFortune()">
+                            مشاهده فال امروز
+                        </button>
+
+                        <div id="dailyRes" class="daily-res-box">
+                            <h4
+                                id="dailyResTitle"
+                                style="color: var(--magenta); margin-bottom: 8px;">
+                            </h4>
+
+                            <p id="dailyResText"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" id="tabHafez" onclick="switchTab('hafez')">📜 فال حافظ شیرازی</button>
+                    <button class="tab-btn" id="tabEstekhare" onclick="switchTab('estekhare')">📿 استخاره با کلام‌الله مجید
+</button>
+                </div>
+
+                <!-- پنل فال حافظ -->
+                <div id="sectionHafez" class="content-card">
+                    
+                    <!-- جایگاه عکس اختصاصی فال حافظ -->
+                    <div class="photo-placeholder">
+                     <img src="hafez-logo.webp" alt="حافظ شیرازی" class="card-art-img">
+                     <div class="photo-title">دیوان خواجه شمس‌الدین محمد حافظ شیرازی</div>
+                    </div>
+
+
+                    <div class="action-box">
+                        <p style="color: var(--text-muted); margin-bottom: 14px;"> نیت کنید و سپس دکمه زیر را لمس نمایید:</p>
+                        <button class="glow-btn" onclick="getHafezFaal()">✨ نیت کردم، فال من را نشان بده</button>
+                    </div>
+
+                    <div id="hafezResult" class="result-area">
+                        <h3 class="poem-header" id="poemTitle">غزل شماره</h3>
+                        <div class="poem-verses" id="poemVerses"></div>
+                        <div class="poem-interpretation">
+                            <strong style="color: var(--magenta); display: block; margin-bottom: 6px;">تعبیر و تفسیر غزل:</strong>
+                            <p id="poemSummary"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- پنل استخاره -->
+                <div id="sectionEstekhare" class="content-card" style="display: none;">
+                    
+                    <!-- جایگاه عکس اختصاصی استخاره -->
+                    <div class="photo-placeholder">
+                     <img src="estekhare-logo.webp" alt="استخاره با کلام‌الله مجید" class="card-art-img">
+                     <div class="photo-title">استخاره با کلام‌الله مجید</div>
+                    </div>
+
+
+                    <div class="action-box">
+                        <p style="color: var(--text-muted); margin-bottom: 14px;"> نیت کنید و بر دکمه کلیک فرمایید:</p>
+                        <button class="glow-btn" onclick="getEstekhare()">📿 استخاره کن</button>
+                    </div>
+
+                    <div id="estekhareResult" class="result-area" style="text-align: center;">
+                        <span id="estBadge" class="estekhare-badge"></span>
+                        <h3 id="estAye" style="margin-bottom: 12px; color: var(--gold); font-size: 1.15rem;"></h3>
+                        <p id="estText" style="font-size: 1.1rem; line-height: 2; margin-bottom: 14px; color: #fff;"></p>
+                        <p id="estNatijeh" style="color: var(--text-muted); font-size: 1rem; line-height: 1.8;"></p>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <!-- فوتر سایت -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- ستون اول: درباره سایت -->
+        <div class="footer-col">
+            <h4>درباره فال و استخاره</h4>
+            <p>
+                سامانه آنلاین «فال و استخاره» فضایی آرام و معنوی برای تفأل به دیوان لسان‌الغیب، استخاره آنلاین با آیات شریف قرآن کریم و فال روزانه طالع‌بینی فراهم آورده است تا لحظاتی سرشار از آرامش و امید برای شما رقم بزند.
+            </p>
+        </div>
+
+        <!-- ستون دوم: دسترسی سریع -->
+        <div class="footer-col">
+            <h4>دسترسی سریع</h4>
+            <ul class="footer-links">
+                <li><a href="#sectionHafez" onclick="switchTab('hafez')">فال حافظ آنلاین با تعبیر کامل</a></li>
+                <li><a href="#sectionEstekhare" onclick="switchTab('estekhare')">استخاره آنلاین با مجید</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleDailyPanel()">فال روزانه متولدین ماه‌ها</a></li>
+                <li><a href="articles/hafez-secrets.html">اسرار تفأل به دیوان حافظ و آداب آن</a></li>
+            </ul>
+        </div>
+
+        <!-- ستون سوم: یادآوری و ارتباط -->
+        <div class="footer-col">
+            <h4>ارتباط و یادآوری</h4>
+            <p>
+                برای دریافت روزانه اشعار و اخبار بازار، می‌توانید در کانال‌های ارتباطی ما در پیام‌رسان بله عضو شوید.
+            </p>
+            <div class="footer-notice">
+                یادآوری: فال و استخاره برای تفأل نیک و آرامش دل است و هرگز جایگزین خرد، مشورت و تدبیر در تصمیم‌گیری‌های مهم زندگی نخواهد بود.
+            </div>
+        </div>
+    </div>
+
+    <!-- خط حقوق سایت -->
+    <div class="footer-bottom">
+        تمامی حقوق مادی و معنوی این وب‌سایت متعلق به faloestekhare.ir می‌باشد. 
+    </div>
+</footer>
+
+
+    <!-- لود مستقیم فایل حاوی دیتابیس ۴۶۵ غزل -->
+    <script src="hafez.js"></script>
+
+    <script>
+        function getPoemsDatabase() {
+            // ۱. اتصال به ۴۶۵ غزل ساخته شده از hafez.js
+            if (typeof window.hafezDb !== 'undefined') {
+                return window.hafezDb.poems || window.hafezDb;
+            }
+            return [];
+        }
+
+        // تلاش برای خواندن hafez.json در حالت وب‌سرور یا هاست
+        fetch('hafez.json')
+            .then(r => r.json())
+            .then(data => {
+                window.hafezDb = data;
+            })
+            .catch(() => {});
+
+        function switchTab(type) {
+            const tabH = document.getElementById('tabHafez');
+            const tabE = document.getElementById('tabEstekhare');
+            const secH = document.getElementById('sectionHafez');
+            const secE = document.getElementById('sectionEstekhare');
+
+            if (type === 'hafez') {
+                tabH.classList.add('active');
+                tabE.classList.remove('active');
+                secH.style.display = 'block';
+                secE.style.display = 'none';
+            } else {
+                tabE.classList.add('active');
+                tabH.classList.remove('active');
+                secE.style.display = 'block';
+                secH.style.display = 'none';
+            }
+        }
+
+        function getHafezFaal() {
+            const list = getPoemsDatabase();
+
+            if (!list || list.length === 0) {
+                alert("دیتابیس در حال بارگذاری است. لطفاً یک بار صفحه را رفرش کنید.");
+                return;
+            }
+
+            // انتخاب کاملاً تصادفی از بین کل ۴۶۵ غزل دیوان حافظ
+            const poem = list[Math.floor(Math.random() * list.length)];
+
+            // نمایش عنوان غزل
+            document.getElementById('poemTitle').innerText = poem.FullTitle || poem.Title || "غزل حافظ";
+
+            // چیدمان مصرع اول و دوم روبه‌روی هم
+            const container = document.getElementById('poemVerses');
+            container.innerHTML = '';
+
+            if (poem.Sections && Array.isArray(poem.Sections)) {
+                let firstM = "";
+                poem.Sections.forEach((sec, idx) => {
+                    const text = sec.PlainText || sec.Verse || sec.Text || "";
+                    if (idx % 2 === 0) {
+                        firstM = text;
+                    } else {
+                        const row = document.createElement('div');
+                        row.className = 'verse-row';
+                        row.innerHTML = `<span>${firstM}</span> &nbsp;—&nbsp; <span>${text}</span>`;
+                        container.appendChild(row);
+                        firstM = "";
+                    }
+                });
+                if (firstM) {
+                    const row = document.createElement('div');
+                    row.className = 'verse-row';
+                    row.innerText = firstM;
+                    container.appendChild(row);
+                }
+            }
+
+                        // تعبیر اختصاصی هر غزل از فیلد PoemSummary دیتابیس (با حذف خودکار عبارت هوش مصنوعی)
+            let summaryText = (poem.PoemSummary && poem.PoemSummary.trim() !== "") 
+                ? poem.PoemSummary.replace(/^[\s\u200c]*هوش مصنوعی\s*[:：]?\s*/, '').trim()
+                : "ای صاحب فال! نیت شما با توکل به پروردگار، صبر و تدبیر به نیکی حاصل خواهد شد.";
+
+            document.getElementById('poemSummary').innerText = summaryText;
+
+
+            // نمایش کادر نتیجه
+            document.getElementById('hafezResult').style.display = 'block';
+        }
+
+        // اطلاعات استخاره با قرآن
+        const estekhareDb = [
+            { res: "بسیار خوب", cls: "badge-good", aye: "سوره اسراء، آیه ۹", text: "إِنَّ هَذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ", desc: "اقدام کنید، این کار خیر و برکت بسیار به همراه دارد و موجب پیشرفت شما خواهد شد." },
+            { res: "خوب با تدبیر", cls: "badge-good", aye: "سوره توبه، آیه ۱۰۵", text: "وَقُلِ اعْمَلُوا فَسَيَرَى اللَّهُ عَمَلَكُمْ وَرَسُولُهُ", desc: "کار خوبی است اما نیاز به تدبیر، پیگیری و مراقبت دارد تا به نتیجه دلخواه برسید." },
+            { res: "میانه (صبر و تأمل)", cls: "badge-mid", aye: "سوره بقره، آیه ۲۱۶", text: "وَعَسَى أَنْ تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَكُمْ", desc: "سختی‌ها و اما و اگرهایی دارد؛ عجله نکنید و فعلاً چند روزی تأمل بهتر است." },
+            { res: "بد (ترک شود)", cls: "badge-bad", aye: "سوره انفال، آیه ۴۶", text: "وَأَطِيعُوا اللَّهَ وَرَسُولَهُ وَلَا تَنَازَعُوا فَتَفْشَلُوا", desc: "به هیچ وجه پیشنهاد نمی‌شود؛ احتمال پشیمانی و زیان وجود دارد. از انجام آن پرهیز کنید." },
+            { res: "بسیار خوب", cls: "badge-good", aye: "سوره طلاق، آیه ۳", text: "وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ", desc: "فرصت مناسبی است؛ با توکل و بدون تردید قدم در این مسیر بگذارید." }
+        ];
+
+        function getEstekhare() {
+            const r = estekhareDb[Math.floor(Math.random() * estekhareDb.length)];
+            const badge = document.getElementById('estBadge');
+            badge.innerText = r.res;
+            badge.className = 'estekhare-badge ' + r.cls;
+            document.getElementById('estAye').innerText = r.aye;
+            document.getElementById('estText').innerText = `« ${r.text} »`;
+            document.getElementById('estNatijeh').innerText = r.desc;
+            document.getElementById('estekhareResult').style.display = 'block';
+        }
+                // -----------------------------
+        // بخش فال روزانه متولدین ماه‌ها
+        // -----------------------------
+
+        const horoscopeMonths = [
+            "فروردین",
+            "اردیبهشت",
+            "خرداد",
+            "تیر",
+            "مرداد",
+            "شهریور",
+            "مهر",
+            "آبان",
+            "آذر",
+            "دی",
+            "بهمن",
+            "اسفند"
+        ];
+
+        // لیست جدید و کامل‌تر جملات فال روزانه
+const texts = [
+    "امروز فرصتی عالی برای شروع یک کار جدید است. به ندای قلبت گوش کن.",
+    "صبر پیشه کن که گشایش در راه است و روزگار بر وفق مرادت خواهد چرخید.",
+    "نگرانی را از خود دور کن؛ آنچه در تقدیر توست، به بهترین شکل رقم خواهد خورد.",
+    "امروز کسی با خبر خوشی به سراغت می‌آید، گوش به زنگ باش.",
+    "در تصمیم‌گیری عجله نکن، مشورت با یک دوست دانا راهگشاست.",
+    "نور امید در دلت روشن است؛ به مسیرت با قدرت ادامه بده.",
+    "کمی استراحت کن و به خودت برس؛ روحیه شاد، کلید موفقیت امروز توست.",
+    "گر گره‌ای در کارت افتاده، با مهربانی و گذشت باز خواهد شد.",
+    "امروز از همنشینی با افراد مثبت انرژی خواهی گرفت.",
+    "اتفاقی غیرمنتظره در راه است که لبخند بر لبت می‌نشاند.",
+    "گذشته را رها کن؛ امروز فرصتی برای ساختن آینده‌ای درخشان است.",
+    "با توکل به خدا قدم بردار؛ مسیر هموارتر از آن است که فکر می‌کنی.",
+    "راز دلت را هر جایی بازگو نکن، اما به نزدیکان اعتماد کن.",
+    "امروز انرژی‌ات بالاست؛ پروژه‌های نیمه‌تمام را تمام کن.",
+    "لبخند بزن که دنیا با لبخند تو زیباتر می‌شود.",
+    "به زودی تغییری مثبت در وضعیت مالی‌ات رخ می‌دهد.",
+    "سفر یا جابه‌جایی در پیش داری که خوش‌یمن خواهد بود.",
+    "دلت روشن باشد که خورشید موفقیت بر زندگی‌ات خواهد تابید.",
+    "امروز از بحث و جدل دوری کن؛ آرامش تو اولویت است.",
+    "ایده‌ای که در سر داری، ارزش دنبال کردن دارد؛ شک نکن."
+];
+
+
+        let userSelectedMonth = -1;
+
+        function toggleDailyPanel() {
+            const panel = document.getElementById("dailyPanel");
+
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        }
+
+        const monthGrid = document.getElementById("monthGrid");
+
+        horoscopeMonths.forEach(function(monthName, monthIndex) {
+            const monthButton = document.createElement("button");
+
+            monthButton.className = "m-btn";
+            monthButton.innerText = monthName;
+
+            monthButton.onclick = function() {
+                userSelectedMonth = monthIndex;
+
+                document.querySelectorAll(".m-btn").forEach(function(button) {
+                    button.classList.remove("active");
+                });
+
+                monthButton.classList.add("active");
+
+                document.getElementById("btnGetDaily").disabled = false;
+            };
+
+            monthGrid.appendChild(monthButton);
+        });
+
+        function showMyDailyFortune() {
+            if (userSelectedMonth === -1) {
+                return;
+            }
+
+            const today = new Date();
+
+            // فال هر ماه در هر روز ثابت است و روزهای مختلف تغییر می‌کند
+            const dayKey =
+                today.getFullYear() * 10000 +
+                (today.getMonth() + 1) * 100 +
+                today.getDate();
+
+            const messageIndex = (dayKey + userSelectedMonth) % texts.length;
+
+
+            document.getElementById("dailyResTitle").innerText =
+                "فال امروز متولدین " + horoscopeMonths[userSelectedMonth];
+
+            document.getElementById("dailyResText").innerText =
+                texts[messageIndex];
+
+            document.getElementById("dailyRes").style.display = "block";
+        }
+
+    </script>
+</body>
+</html>
